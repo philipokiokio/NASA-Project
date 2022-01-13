@@ -8,7 +8,7 @@ jobs:
   build:
     env:
       CI: true
-      MONGO_URL: mongodb://localhost/nasa/
+      MONGO_URL: mongodb://localhost/nasa
     strategy:
       matrix:
         node-version: [14.x,16.x]
@@ -21,7 +21,7 @@ jobs:
         with: 
           node-version: ${{ matrix.node-version}}
       - name: Use MongoDB from GiHub Actions
-        uses: supercharge/mongodb-github-action@1.6.0
+        uses:  timgchile/mongodb-github-action@1.7.4
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - run: npm install
