@@ -3,13 +3,15 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const mongo_url = process.env.MONGO_URL;
 const app = require('../../app.js');
-const { mongoConnect, mongoDisconnect } = require('../../services/mongo')
+const { mongoConnect, mongoDisconnect } = require('../../services/mongo');
+const { loadPlanetData } = require('../../models/planets.model.js');
 
 
 
 describe('Launches API', () =>{
     beforeAll(async ()=>{
         await mongoConnect();
+        await loadPlanetData();
     });
     afterAll(async ()=>{
         await mongoDisconnect();
