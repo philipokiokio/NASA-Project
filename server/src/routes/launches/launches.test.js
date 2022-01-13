@@ -1,6 +1,10 @@
 const request = require('supertest');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const mongo_url = process.env.MONGO_URL;
 const app = require('../../app.js');
 const { mongoConnect, mongoDisconnect } = require('../../services/mongo')
+
 
 
 describe('Launches API', () =>{
@@ -15,7 +19,7 @@ describe('Launches API', () =>{
 
         test("It should respond with 200 success", async () =>{
             const response = await request(app)
-            .get('/launches')
+            .get('/v1/launches')
             .expect('Content-Type',/json/)
             .expect(200);
         });
@@ -45,7 +49,7 @@ describe('Launches API', () =>{
     
         test("It should respond with 201 created", async() =>{
             const response = await request(app)
-                            .post('/launches')
+                            .post('/v1/launches')
                             .send(completeLaunchData)
                             .expect("Content-Type",/json/)
                             .expect(201);
@@ -60,7 +64,7 @@ describe('Launches API', () =>{
         });
         test("It should catch missing required properties", async () =>{
             const response = await request(app)
-                                    .post('/launches')
+                                    .post('/v1/launches')
                                     .send(launchDataNoDate)
                                     .expect('Content-Type', /json/)
                                     .expect(400);
@@ -72,7 +76,7 @@ describe('Launches API', () =>{
         });
         test("It should catch invalid dates",async () =>{
             const response = await request(app)
-            .post('/launches')
+            .post('/v1/launches')
             .send(completeInvalidData)
             .expect('Content-Type', /json/)
             .expect(400);
