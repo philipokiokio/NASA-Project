@@ -6,6 +6,24 @@ Where Models are modules seperated from the Routes and controllers.
 
 Controllers and Routes are placed side by side in Dirs which are binding to a specific functionality.
 
+
+# API Service 
+API service is deployed on AWS using EC2 instance. The codebase was used to create a Docker Image with was then deployed on a free tier EC2 instance. 
+
+
+This can be seen at 
+http://3.86.212.138:8000/
+
+the endpoints include. 
+
+All habitable : http://3.86.212.138:8000/v1/Planets
+
+
+All Launch Data available: http://3.86.212.138:8000/v1/Launches {GET}
+
+same endpoint to create launch data {POST}
+
+Delete From Launch (actually an edit): http://3.86.212.138:8000/v1/Launches/:Id {DELETE}
 # Stack
 
 * NodeJs (JavaScript Runtime ): Layered with Express Framework. 
