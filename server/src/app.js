@@ -9,6 +9,17 @@ const api = require('./routes/api');
 const  app = express();
 
 app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives:{
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "script-src":["'self'","'unsafe-inline'","example.com"]
+        },
+    })
+);
+
+
+
 app.use(express.static(path.join(__dirname,'../', 'public')));
 
 app.use(cors({
