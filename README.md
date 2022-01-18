@@ -12,18 +12,18 @@ API service is deployed on AWS using EC2 instance. The codebase was used to crea
 
 
 This can be seen at 
-http://3.86.212.138:8000/
+http://34.229.140.28:8000/
 
 the endpoints include. 
 
-All habitable : http://3.86.212.138:8000/v1/Planets
+All habitable : http://34.229.140.28:8000/v1/Planets
 
 
-All Launch Data available: http://3.86.212.138:8000/v1/Launches {GET}
+All Launch Data available: http://34.229.140.28:8000/v1/Launches {GET}
 
 same endpoint to create launch data {POST}
 
-Delete From Launch (actually an edit): http://3.86.212.138:8000/v1/Launches/:Id {DELETE}
+Delete From Launch (actually an edit): http://34.229.140.28:8000/v1/Launches/:Id {DELETE}
 # Stack
 
 * NodeJs (JavaScript Runtime ): Layered with Express Framework. 
